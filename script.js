@@ -220,4 +220,38 @@ var loader = document.querySelector("#loader");
 
 setTimeout(() => {
     loader.style.top ="-100%"
-}, 4000);
+}, 3500);  //change to 0 - 4000
+
+
+// for hide certificates
+document.getElementById("view-more-btn").addEventListener("click", function () {
+  var moreCertificates = document.getElementById("more-certificates");
+
+  if (moreCertificates.classList.contains("show")) {
+      moreCertificates.style.animation = "fadeOut 0.5s ease-in-out"; // Apply fade-out animation
+      setTimeout(() => {
+          moreCertificates.classList.remove("show");
+          moreCertificates.style.animation = ""; // Reset animation
+      }, 500);
+      this.textContent = "View More Certificates";
+  } else {
+      moreCertificates.classList.add("show");
+      moreCertificates.style.animation = "fadeIn 0.5s ease-in-out"; // Apply fade-in animation
+      this.textContent = "Show Less";
+  }
+});
+
+
+// <!-- JavaScript for View More / View Less -->
+    document.getElementById("toggle-projects-btn").addEventListener("click", function () {
+        var moreProjects = document.getElementById("more-projects");
+        var btn = document.getElementById("toggle-projects-btn");
+        
+        if (moreProjects.classList.contains("hidden")) {
+            moreProjects.classList.remove("hidden");
+            btn.textContent = "View Less";
+        } else {
+            moreProjects.classList.add("hidden");
+            btn.textContent = "View More Projects";
+        }
+    });
